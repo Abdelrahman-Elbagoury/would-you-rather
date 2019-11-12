@@ -131,17 +131,17 @@ export function _getQuestions () {
   })
 }
 
-export function formatQuestion ({ optionOneText, optionTwoText, author, timestamp, ke }) {
+export function formatQuestion ({ optionOneText, optionTwoText, author, timestamp, ke, optionOneVotes, optionTwoVotes }) {
   return {
     id: ke ? ke : generateUID(),
     timestamp: new Date(timestamp),
     author,
     optionOne: {
-      votes: [],
+      votes: optionOneVotes,
       text: optionOneText,
     },
     optionTwo: {
-      votes: [], 
+      votes: optionTwoVotes, 
       text: optionTwoText,
     }
   }

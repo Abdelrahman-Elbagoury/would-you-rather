@@ -16,10 +16,10 @@ export function getInitialData() {
 
 export function handleAddQuestion(optionOneText, optionTwoText) {
     return (dispatch, getState) => {
-      const { authedUser } = getState();
+      const { authedUserReducer } = getState();
   
       return _saveQuestion({
-        author: authedUser,
+        author: Object.values(authedUserReducer).join(''),
         optionOneText,
         optionTwoText
       }).then(question => {
