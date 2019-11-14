@@ -1,6 +1,8 @@
-import { _getQuestions, _getUsers, _saveQuestion } from '../utils/_DATA'
-import {receiveQuestions, addQuestion} from './questions'
+import { _getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA'
+import {receiveQuestions, addQuestion, saveQuestionAnswer} from './questions'
 import receiveUsers from './users'
+import {addQuestionToUser, saveQuestionAnswerToAuthedUser} from './users'
+
 
 
 export function getInitialData() {
@@ -24,7 +26,21 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
         optionTwoText
       }).then(question => {
         dispatch(addQuestion(question));
-        // dispatch(addQuestionToAuthedUser(authedUser, question.id));
+        dispatch(addQuestionToUser(Object.values(authedUserReducer).join(''), question.id));
       });
+    };
+  }
+
+  export function handleSaveQuestionAnswer(id, answer) {
+    return (dispatch, getState) => {
+      const { authedUserReducer } = getState();
+  
+      return _saveQuestionAnswer({
+        authedUserReducer: Object.values(authedUserReducer).join(''),
+        qid: id,
+        answer
+      })
+        .then(dispatch(saveQuestionAnswer(id, answer, Object.values(authedUserReducer).join(''))))
+        .then(dispatch(saveQuestionAnswerToAuthedUser(Object.values(authedUserReducer).join(''), id, answer)));
     };
   }

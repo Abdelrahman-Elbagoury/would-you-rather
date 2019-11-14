@@ -4,10 +4,13 @@ import { connect } from 'react-redux'
 import { getInitialData } from '../actions/shared'
 import Selected from './selectedQuestion'
 import NewQuestion from './newQuestion'
+import AnsweredQuestion from '../components/answeredQuestions'
+import UnansweredQuestions from '../components/unansweredQuestions'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Link
 } from "react-router-dom";
 import Home from './home'
 
@@ -20,8 +23,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
+        <Link to='answeredQuestion'>answered</Link><br/>
+        <Link to='unansweredQuestion'>unanswered</Link><br/>
+
           <div>
-            
             <Switch>
               <Route path="/home">
                 <Home />
@@ -31,6 +36,12 @@ class App extends React.Component {
               </Route>
               <Route path="/newQuestion">
                 <NewQuestion />
+              </Route>
+              <Route path="/answeredQuestion">
+                <AnsweredQuestion />
+              </Route>
+              <Route path="/unansweredQuestion">
+                <UnansweredQuestions />
               </Route>
               <Route path="/">
                 <Login />

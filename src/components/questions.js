@@ -23,7 +23,7 @@ class Questions extends Component {
 
                 <h3>Would you rather</h3>
                 {
-                    this.props.questions.optionOne.votes.includes(this.props.loggedinUser.id) || this.props.questions.optionTwo.votes.includes(this.props.loggedinUser.id) ? 'answered' : ''
+                    (this.props.questions.optionOne.votes && this.props.questions.optionTwo.votes) ? (this.props.questions.optionOne.votes.includes(this.props.loggedinUser.id) || this.props.questions.optionTwo.votes.includes(this.props.loggedinUser.id) ? 'answered' : '') : ''
                 } <br/>
                 {this.props.questions.optionOne.text}
                 <span style={{ fontWeight: '700' }}> or </span>

@@ -22,7 +22,7 @@ class Login extends Component {
                         )
                     })}
                 </select><br />
-                <button><Link to='/home'>login</Link></button>
+                <button><Link to='/answeredQuestion'>login</Link></button>
             </div>
         )
     }
