@@ -137,11 +137,11 @@ export function formatQuestion ({ optionOneText, optionTwoText, author, timestam
     timestamp: new Date(timestamp),
     author,
     optionOne: {
-      votes: optionOneVotes,
+      votes: optionOneVotes ? optionOneVotes : [],
       text: optionOneText,
     },
     optionTwo: {
-      votes: optionTwoVotes, 
+      votes: optionTwoVotes? optionTwoVotes : [], 
       text: optionTwoText,
     }
   }

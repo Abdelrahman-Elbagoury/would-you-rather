@@ -42,8 +42,8 @@ class Selected extends Component {
         return (
             <div>
                 <div id='answer'>
-                    <input id='r1' type='radio' name="gender" value={this.props.questions.optionOne.text} /> {this.props.questions.optionOne.text}  <br />
-                    <input id='r2' type='radio' name="gender" value={this.props.questions.optionTwo.text} /> {this.props.questions.optionTwo.text}  <br />
+                    <input id='r1' type='radio' name="gender" value='optionOne' /> {this.props.questions.optionOne.text}  <br />
+                    <input id='r2' type='radio' name="gender" value='optionTwo' /> {this.props.questions.optionTwo.text}  <br />
                 </div>
                 <button onClick={() => this.getRadioValue()}>Submit answer</button>
             </div>
