@@ -6,25 +6,24 @@ import Selected from './selectedQuestion'
 import NewQuestion from './newQuestion'
 import AnsweredQuestion from '../components/answeredQuestions'
 import UnansweredQuestions from '../components/unansweredQuestions'
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Home from './home'
+import Result from './result'
 
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.dispatch(getInitialData())
+    this.props && this.props.dispatch(getInitialData())
   }
   render() {
     return (
       <div className="App">
         <Router>
-        <Link to='answeredQuestion'>answered</Link><br/>
-        <Link to='unansweredQuestion'>unanswered</Link><br/>
 
           <div>
             <Switch>
@@ -42,6 +41,9 @@ class App extends React.Component {
               </Route>
               <Route path="/unansweredQuestion">
                 <UnansweredQuestions />
+              </Route>
+              <Route path="/result">
+                <Result />
               </Route>
               <Route path="/">
                 <Login />
