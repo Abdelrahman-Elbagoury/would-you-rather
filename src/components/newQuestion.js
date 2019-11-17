@@ -13,12 +13,16 @@ class NewQuestion extends Component {
         this.handleNewQuestion = this.handleNewQuestion.bind(this)
     }
     handleNewQuestion() {
-        this.props.dispatch(handleAddQuestion(this.state.optionOneText, this.state.optionTwoText))
+        if(this.state.optionOneText.length > 0 && this.state.optionTwoText.length) {
+            this.props.dispatch(handleAddQuestion(this.state.optionOneText, this.state.optionTwoText))
+        }
     }
     render() {
         return (
-            <div>
-                <Link to='/home'>home</Link><br />
+            <div style={{ width: '40%', margin: 'auto', textAlign: 'center', borderRadius: '3px', marginTop: '150px', padding: '40px', backgroundColor: 'white' }}>
+                <Link to='/unansweredQuestions'>return to home</Link>
+                <br/>
+                <br/>
                 <input onChange={e =>
                     this.setState({ optionOneText: e.target.value })
                 } />
@@ -28,7 +32,8 @@ class NewQuestion extends Component {
                 <input onChange={e =>
                     this.setState({ optionTwoText: e.target.value })
                 } /><br />
-                <Link to='/home'>
+                <br/>
+                <Link to={(this.state.optionOneText.length > 0 && this.state.optionTwoText.length) ? '/unansweredQuestions' : 'newQuestion'}>
                     <button onClick={() => this.handleNewQuestion()}>save question</button>
                 </Link>
             </div>

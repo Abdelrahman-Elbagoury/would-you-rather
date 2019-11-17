@@ -28,7 +28,7 @@ class Login extends Component {
                     })}
                 </select><br />
                 <Button variant="link">
-                    <Link to={Object.values(this.props.authedUserReducer).join('') && '/unansweredQuestion'}>login</Link>
+                    <Link to={Object.values(this.props.authedUserReducer).join('') && '/unansweredQuestions'}>login</Link>
                 </Button>
             </div>
         )

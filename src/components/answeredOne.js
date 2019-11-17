@@ -29,7 +29,7 @@ class AnsweredOne extends Component {
                             <div style={{marginTop:'20px', fontSize:'13px', color:'gray'}}>
                                 {(this.props.questions.timestamp).toDateString()}
                             </div>
-                            <Button style={{ marginLeft: '390px' }} variant="link" onClick={(e) => this.handleCResult(this.props.questions.id)}><Link to='/result'>Show result</Link></Button>
+                            <Button style={{ marginLeft: '390px' }} variant="link" onClick={(e) => this.handleCResult(this.props.questions.id)}><Link to={`/result/${this.props.id}`}>Show result</Link></Button>
                         </div>
                         : '') : ''
                 }

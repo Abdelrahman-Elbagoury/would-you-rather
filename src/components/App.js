@@ -6,11 +6,12 @@ import Selected from './selectedQuestion'
 import NewQuestion from './newQuestion'
 import AnsweredQuestion from '../components/answeredQuestions'
 import UnansweredQuestions from '../components/unansweredQuestions'
-
+import LeaderBoard from './leaderBoard'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link
 } from "react-router-dom";
 import Home from './home'
 import Result from './result'
@@ -18,13 +19,13 @@ import Result from './result'
 
 class App extends React.Component {
   componentDidMount() {
-    this.props && this.props.dispatch(getInitialData())
+    this.props.dispatch(getInitialData())
   }
   render() {
     return (
       <div className="App">
         <Router>
-
+          <Link to='leaderboard'>leader board</Link>
           <div>
             <Switch>
               <Route path="/home">
@@ -36,14 +37,17 @@ class App extends React.Component {
               <Route path="/newQuestion">
                 <NewQuestion />
               </Route>
-              <Route path="/answeredQuestion">
+              <Route path="/answeredQuestions">
                 <AnsweredQuestion />
               </Route>
-              <Route path="/unansweredQuestion">
+              <Route path="/unansweredQuestions">
                 <UnansweredQuestions />
               </Route>
               <Route path="/result">
                 <Result />
+              </Route>
+              <Route path="/leaderboard">
+                <LeaderBoard />
               </Route>
               <Route path="/">
                 <Login />

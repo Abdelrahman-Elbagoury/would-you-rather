@@ -26,8 +26,8 @@ class AnsweredQuestions extends React.Component {
             <Nav className="">
               <Link style={{ marginTop: '5px', paddingRight: '20px'}} to="/">login</Link>
               <Link style={{ marginTop: '5px', paddingRight: '20px'}} to='/newQuestion'>new question</Link>
-              <Link style={{ marginTop: '5px', paddingRight: '20px'}} to='answeredQuestion'>answered</Link>
-              <Link style={{ marginTop: '5px', paddingRight: '20px'}} to='unansweredQuestion'>unanswered</Link>
+              <Link style={{ marginTop: '5px', paddingRight: '20px'}} to='answeredQuestions'>answered</Link>
+              <Link style={{ marginTop: '5px', paddingRight: '20px'}} to='unansweredQuestions'>unanswered</Link>
               <img style={{ width: '30px', marginLeft: '20px' }} alt='' src={this.props.user.avatarURL} />
               <NavDropdown
                 title={Object.values(this.props.authedUserReducer)}

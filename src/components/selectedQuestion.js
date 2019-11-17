@@ -9,18 +9,20 @@ class Selected extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            answer: undefined,
+            answer: '',
             id: this.props.id
         }
         this.getRadioValue = this.getRadioValue.bind(this)
     }
-
+    
     getRadioValue() {
         var rate_value
         if (document.getElementById('r1').checked) {
             rate_value = document.getElementById('r1').value;
-        } else {
+            this.props.dispatch(handleSaveQuestionAnswer(this.props.id.setSelectedReducer, rate_value)) 
+        } else if(document.getElementById('r2').checked) {
             rate_value = document.getElementById('r2').value;
+            this.props.dispatch(handleSaveQuestionAnswer(this.props.id.setSelectedReducer, rate_value)) 
         }
         this.setState(() => {
             return {
@@ -28,7 +30,7 @@ class Selected extends Component {
             }
         })
 
-        this.props.dispatch(handleSaveQuestionAnswer(this.state.id.setSelectedReducer, rate_value))
+        // this.props.dispatch(handleSaveQuestionAnswer(this.state.id.setSelectedReducer, rate_value)) 
 
     }
 
@@ -42,7 +44,7 @@ class Selected extends Component {
                     <input id='r2' type='radio' name="gender" value='optionTwo' /> {this.props.questions.optionTwo.text}  <br />
                 </div>
                 
-                    <Button variant="link" onClick={() => this.getRadioValue()}><Link to='/unansweredQuestion'>Submit answer</Link></Button>
+                    <Button variant="link" onClick={() => this.getRadioValue()}><Link to='/unansweredQuestions'>Submit answer</Link></Button>
                 
             </div>
         )

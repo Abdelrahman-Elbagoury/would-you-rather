@@ -30,7 +30,7 @@ class UnansweredOne extends Component {
                                 {(this.props.questions.timestamp).toDateString()}
                             </div>
                             <Button style={{ marginLeft: '390px' }} variant="link" onClick={(e) => this.handleChange(this.props.questions.id)}>
-                                <Link to='/selected'>Answer</Link>
+                                <Link to={`/selected/${this.props.id}`}>Answer</Link>
                             </Button>
                         </div>
                         : '') : ''
@@ -43,7 +43,6 @@ class UnansweredOne extends Component {
 
 function mapStateToProps({ questionsReducer, authedUserReducer, setSelectedReducer, usersReducer }, { id }) {
     let question = questionsReducer[id]
-
     return {
         questions: formatQuestion({
             optionOneText: question.optionOne.text,
