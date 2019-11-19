@@ -14,15 +14,15 @@ class Selected extends Component {
         }
         this.getRadioValue = this.getRadioValue.bind(this)
     }
-    
+
     getRadioValue() {
         var rate_value
         if (document.getElementById('r1').checked) {
             rate_value = document.getElementById('r1').value;
-            this.props.dispatch(handleSaveQuestionAnswer(this.props.id.setSelectedReducer, rate_value)) 
-        } else if(document.getElementById('r2').checked) {
+            this.props.dispatch(handleSaveQuestionAnswer(this.props.id.setSelectedReducer, rate_value))
+        } else if (document.getElementById('r2').checked) {
             rate_value = document.getElementById('r2').value;
-            this.props.dispatch(handleSaveQuestionAnswer(this.props.id.setSelectedReducer, rate_value)) 
+            this.props.dispatch(handleSaveQuestionAnswer(this.props.id.setSelectedReducer, rate_value))
         }
         this.setState(() => {
             return {
@@ -36,16 +36,19 @@ class Selected extends Component {
 
     render() {
         return (
-            <div style={{ width: '50%', margin: 'auto', marginTop:'120px', textAlign: 'center', borderRadius: '3px', marginBottom: '20px', paddingBottom: '10px', backgroundColor: 'white' }}>
-                <div style={{ width: '100%', backgroundColor: '#343a40', padding: '40px', color: 'white' }}> {this.props.questions.author} </div>
-                <img style={{ width: '75px', marginTop: '-30px' }} alt='' src={this.props.user && this.props.user.avatarURL} />
-                <div id='answer'>
-                    <input id='r1' type='radio' name="gender" value='optionOne' /> {this.props.questions.optionOne.text}  <br />
-                    <input id='r2' type='radio' name="gender" value='optionTwo' /> {this.props.questions.optionTwo.text}  <br />
-                </div>
-                
+            <div>
+                <Link to='/unansweredQuestions'>Back To Home</Link>
+
+                <div style={{ width: '50%', margin: 'auto', marginTop: '120px', textAlign: 'center', borderRadius: '3px', marginBottom: '20px', paddingBottom: '10px', backgroundColor: 'white' }}>
+                    <div style={{ width: '100%', backgroundColor: '#343a40', padding: '40px', color: 'white' }}> {this.props.questions.author} </div>
+                    <img style={{ width: '75px', marginTop: '-30px' }} alt='' src={this.props.user && this.props.user.avatarURL} />
+                    <div id='answer'>
+                        <input id='r1' type='radio' name="gender" value='optionOne' /> {this.props.questions.optionOne.text}  <br />
+                        <input id='r2' type='radio' name="gender" value='optionTwo' /> {this.props.questions.optionTwo.text}  <br />
+                    </div>
+
                     <Button variant="link" onClick={() => this.getRadioValue()}><Link to='/unansweredQuestions'>Submit answer</Link></Button>
-                
+                </div>
             </div>
         )
     }

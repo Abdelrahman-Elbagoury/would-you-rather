@@ -16,11 +16,10 @@ class AnsweredOne extends Component {
     render() {
         return (
             <div>
-
                 {
                     (this.props.questions.optionOne.votes && this.props.questions.optionTwo.votes) ? (this.props.questions.optionOne.votes.includes(this.props.loggedinUser.id) || this.props.questions.optionTwo.votes.includes(this.props.loggedinUser.id)
                         ? <div style={{ width: '50%', margin: 'auto', textAlign: 'center', borderRadius: '3px', marginBottom: '20px', paddingBottom: '10px', backgroundColor: 'white' }}>
-                            <div style={{ width: '100%', backgroundColor: '#343a40', padding: '40px', color: 'white' }}> {this.props.questions.author} </div>
+                            <div style={{ width: '100%', backgroundColor: '#343a40', padding: '40px', color: 'white' }}> {this.props.user.name} </div>
                             <img style={{ width: '75px', marginTop: '-30px' }} alt='' src={this.props.user && this.props.user.avatarURL} />
                             <h3>Would you rather</h3>
                             <div style={{ marginBottom: '10px' }}>{this.props.questions.optionOne.text}</div>

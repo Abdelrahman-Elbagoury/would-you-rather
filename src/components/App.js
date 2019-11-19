@@ -11,7 +11,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Home from './home'
 import Result from './result'
@@ -25,7 +24,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Link to='leaderboard'>leader board</Link>
           <div>
             <Switch>
               <Route path="/home">

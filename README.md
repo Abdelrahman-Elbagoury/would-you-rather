@@ -1,3 +1,32 @@
+
+For quick start you can run In the project directory:
+## after you clone the project
+
+1- yarn || npm i
+2- yarn run start || npm start
+
+## I use these dependencies:
+    "bootstrap"
+    "react"
+    "react-bootstrap",
+    "react-dom"
+    "react-redux"
+    "react-router-dom"
+    "react-scripts"
+    "redux"
+    "redux-thunk"
+
+Here the project flow and all my work:
+
+src
+ |---- actions
+ |---- reducers
+ |---- middleware
+ |---- utils
+ |---- components
+ |---- assets
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
